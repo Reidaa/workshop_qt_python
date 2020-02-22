@@ -1,12 +1,13 @@
 ##Using UI Files
-This page describes the use of Qt Creator to create graphical interfaces for your Qt for Python project. You will need Qt Creator to design and modify your interface (UI file).
 
-If you don’t know how to use Qt Creator, refer to the Using Qt Designer documentation page.
+This page describes the use of **QtDesigner** to create graphical interfaces for your Qt for Python project. 
+You will need **QtDesigner** to design and modify your interface (UI file).
 
-At Qt Creator, create a new Qt Design Form, choose “Main Window” for template. And save as mainwindow.ui. Add a QPushButton to the center of the centralwidget.
+In **QtDesigner**, create a new Qt Design Form, choose “Main Window” for template. 
+And save as _mainwindow.ui_. 
+Add a _QPushButton_ to the center of the centralwidget.
 
 Your file (mainwindow.ui) should look something like this:
-
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
@@ -64,23 +65,25 @@ Your file (mainwindow.ui) should look something like this:
 </ui>
 ```
 
-Now we are ready to decide how to use the UI file from Python.
+Now we are ready to decide how to use the **UI file** from Python.
 
 ##Generating a Python class
 
-Another option to interact with a UI file is to generate a Python class from it. This is possible thanks to the pyside2-uic tool. To use this tool, you need to run the following command on a console:
+Another option to interact with a **UI file** is to generate a Python class from it. 
+This is possible thanks to the _pyside2-uic_ tool.
+To use this tool, you need to run the following command on a console:
 
 ```shell script
 pyside2-uic mainwindow.ui > ui_mainwindow.py
 ```
 
-We redirect all the output of the command to a file called ui_mainwindow.py, which will be imported directly:
+We redirect all the output of the command to a file called _ui_mainwindow.py_, which will be imported directly:
 
 ```python
 from ui_mainwindow import Ui_MainWindow
 ```
 
-Now to use it, we should create a personalized class for our widget to setup this generated design.
+Now to use it, we should create a personalized class for our widget to **setup** this generated design.
 
 To understand the idea, let’s take a look at the whole code:
 
@@ -105,7 +108,7 @@ if __name__ == "__main__":
     sys.exit(app.exec_())
 ```
 
-What is inside the if statement is already known from the previous examples, and our new basic class contains only two new lines that are in charge of loading the generated python class from the UI file:
+What is inside the _if_ statement is already known from the previous examples, and our new basic class contains only two new lines that are in charge of loading the generated python class from the UI file:
 
 ```python
 self.ui = Ui_MainWindow()
@@ -116,11 +119,11 @@ self.ui.setupUi(self)
 
 ##Loading it directly
 
-To load the UI file directly, we will need a class from the QtUiTools module:
+To load the UI file directly, we will need a class from the **QtUiTools** module:
 ```python
 from PySide2.QtUiTools import QUiLoader
 ```
-The QUiLoader lets us load the ui file dynamically and use it right away:
+The _QUiLoader_ lets us load the **ui file** dynamically and use it right away:
 ```python
 ui_file = QFile("mainwindow.ui")
 ui_file.open(QFile.ReadOnly)
