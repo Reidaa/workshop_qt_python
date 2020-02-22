@@ -1,4 +1,4 @@
-#Using UI Files
+## Using UI Files
 
 This page describes the use of **QtDesigner** to create graphical interfaces for your Qt for Python project. 
 You will need **QtDesigner** to design and modify your interface (UI file).
@@ -67,7 +67,7 @@ Your file (mainwindow.ui) should look something like this:
 
 Now we are ready to decide how to use the **UI file** from Python.
 
-##Generating a Python class
+## Generating a Python class
 
 Another option to interact with a **UI file** is to generate a Python class from it. 
 This is possible thanks to the _pyside2-uic_ tool.
@@ -117,7 +117,7 @@ self.ui.setupUi(self)
 
 `You must run pyside2-uic again every time you make changes to the UI file.`
 
-##Loading it directly
+## Loading it directly
 
 To load the UI file directly, we will need a class from the **QtUiTools** module:
 ```python
