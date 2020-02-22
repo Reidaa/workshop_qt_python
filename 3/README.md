@@ -1,4 +1,4 @@
-##Using UI Files
+#Using UI Files
 
 This page describes the use of **QtDesigner** to create graphical interfaces for your Qt for Python project. 
 You will need **QtDesigner** to design and modify your interface (UI file).
