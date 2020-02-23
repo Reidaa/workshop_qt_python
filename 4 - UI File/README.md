@@ -129,7 +129,9 @@ self.ui.setupUi(self)
 
 ## Loading it directly
 
-To load the UI file directly, we will need a class from the **QtUiTools** module:
+You can also load the UI file directly, drawback is that you cannot extend the loaded class, you will have to use it as is.
+
+We will need a class from the **QtUiTools** module:
 ```python
 from PySide2.QtUiTools import QUiLoader
 ```
