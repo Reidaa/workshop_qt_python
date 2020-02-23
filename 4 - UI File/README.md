@@ -118,7 +118,7 @@ if __name__ == "__main__":
     sys.exit(app.exec_())
 ```
 
-What is inside the _if_ statement is already known from the previous examples, and our new basic class contains only two new lines that are in charge of loading the generated python class from the UI file:
+Our class contains only two new lines that are in charge of loading the generated python class from the UI file:
 
 ```python
 self.ui = Ui_MainWindow()
@@ -146,4 +146,5 @@ window.show()
 Since PySide accepts high-level Python objects a lot of the time, your UI loader function can be simplified to something like:
 ```python
 window = QUiLooader().load("mainwindow.ui")
+window.show()
 ```

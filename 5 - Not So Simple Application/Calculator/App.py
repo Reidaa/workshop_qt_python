@@ -1,4 +1,5 @@
 from PySide2.QtWidgets import QApplication, QMainWindow
+from PySide2.QtCore import Slot
 import operator
 
 from ui_mainwindow import Ui_MainWindow
@@ -43,6 +44,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def display(self):
         self.lcdNumber.display(self.stack[-1])
 
+    @Slot()
     def reset(self):
         self.state = READY
         self.stack = [0]
@@ -50,14 +52,17 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.current_op = None
         self.display()
 
+    @Slot()
     def memory_store(self):
         self.memory = self.lcdNumber.value()
 
+    @Slot()
     def memory_recall(self):
         self.state = INPUT
         self.stack[-1] = self.memory
         self.display()
 
+    @Slot(int)
     def input_number(self, v):
         if self.state == READY:
             self.state = INPUT
@@ -75,11 +80,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.state = INPUT
         self.current_op = op
 
+    @Slot()
     def operation_pc(self):
         self.state = INPUT
         self.stack[-1] *= 0.01
         self.display()
 
+    @Slot()
     def equals(self):
         if self.state == READY and self.last_operation:
             s, self.current_op = self.last_operation
