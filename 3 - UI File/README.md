@@ -3,6 +3,10 @@
 This page describes the use of **QtDesigner** to create graphical interfaces for your Qt for Python project. 
 You will need **QtDesigner** to design and modify your interface (UI file).
 
+In case you haven't listen, to install **QtDesigner** follow this [link](http://bit.ly/qt-designer-win
+) on Windows or _sudo apt install qtcreator_ on Ubuntu.
+
+
 In **QtDesigner**, create a new Qt Design Form, choose “Main Window” for template. 
 And save as _mainwindow.ui_. 
 Add a _QPushButton_ to the center of the centralwidget.
@@ -71,10 +75,16 @@ Now we are ready to decide how to use the **UI file** from Python.
 
 Another option to interact with a **UI file** is to generate a Python class from it. 
 This is possible thanks to the _pyside2-uic_ tool.
-To use this tool, you need to run the following command on a console:
+To use this tool, you need to run the following command on a console
 
+Linux:
 ```shell script
 pyside2-uic mainwindow.ui > ui_mainwindow.py
+```
+
+Windows:
+```shell script
+pyside2-uic mainwindow.ui -o ui_mainwindow.py
 ```
 
 We redirect all the output of the command to a file called _ui_mainwindow.py_, which will be imported directly:
@@ -131,4 +141,9 @@ ui_file.open(QFile.ReadOnly)
 loader = QUiLoader()
 window = loader.load(ui_file)
 window.show()
+```
+
+Since PySide accepts high-level Python objects a lot of the time, your UI loader function can be simplified to something like:
+```python
+window = QUiLooader().load("mainwindow.ui")
 ```
