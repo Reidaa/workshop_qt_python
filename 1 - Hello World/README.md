@@ -15,7 +15,7 @@ After the imports, you create a _QApplication_ instance. As Qt can receive argum
 Usually, you don’t need to pass any arguments so you can leave it as is, or use the following approach:
 
 ```python
-app = QApplication([])
+app = QApplication()
 ```
 
 After the creation of the application object, we have created a _QLabel_ object.
@@ -28,5 +28,4 @@ label = QLabel("<font color=red size=40>Hello World!</font>")
 After creating the label, we call show() on it. 
 `
 
-Finally, we call _app.exec()_ to enter the Qt main loop and start to execute the Qt code.
-In reality, it is only here where the label is shown, but this can be ignored for now.
+Finally, we call _app.exec_()_ to enter the Qt main loop and start to execute the Qt code.
